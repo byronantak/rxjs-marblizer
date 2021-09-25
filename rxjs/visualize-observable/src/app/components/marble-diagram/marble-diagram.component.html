@@ -1,0 +1,6 @@
+<div class="marble-diagram">
+    <ng-container *ngFor="let value of values; let i = index">
+        <app-marble class="marble-container" [value]="getDisplayValue(value)" [circleColour]="colours[i]"></app-marble>
+        <hr *ngIf="i !== values.length - 1" class="line">
+    </ng-container>
+</div>

@@ -1,0 +1,15 @@
+.marble-diagram {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+    .line {
+        flex-grow: 1;
+        align-self: center;
+    }
+
+    .marble-container {
+        display: flex;
+        align-self: center;
+    }
+}
