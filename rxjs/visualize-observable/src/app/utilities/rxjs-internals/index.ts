@@ -1,3 +1,3 @@
 export * from './operate';
-export * from './OperatorSubscriber';
+export * from './operator-subscriber';
 

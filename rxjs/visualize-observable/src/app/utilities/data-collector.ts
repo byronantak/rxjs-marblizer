@@ -4,6 +4,7 @@ export class DataCollecter<T> implements DataIngester<T> {
     public values: T[] = [];
     public timeLookup: { [date: string]: T[] } = {}
     public startTime = new Date();
+    public isComplete = false;
 
     public ingest(value: T): void {
         this.values.push(value);
@@ -15,12 +16,17 @@ export class DataCollecter<T> implements DataIngester<T> {
             this.timeLookup[timeDiff] = [value];
         }
     }
+
+    public complete(): void {
+        this.isComplete = true;
+    }
 }
 
 export class DataMultiCollecter<T> implements DataIngester<T[]> {
     public values: T[] = [];
     public timeLookup: { [date: string]: T[] } = {}
     public startTime = new Date();
+    public isComplete = false;
 
     private timeIntervalCounter = 0;
     private expectedItemCount: number;
@@ -41,5 +47,9 @@ export class DataMultiCollecter<T> implements DataIngester<T[]> {
         else {
             this.timeLookup[timeDiff] = [...expectedValues];
         }
+    }
+
+    public complete(): void {
+        this.isComplete = true;
     }
 }

@@ -13,4 +13,8 @@ export class VisualizeSubscriber<T> extends Subscriber<T> {
         this.dataCollector.ingest(value);
         this._next(value);
     }
+
+    public complete(): void {
+        this.dataCollector.complete();
+    }
 }
