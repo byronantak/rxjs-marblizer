@@ -1,26 +1,16 @@
 import { Subscriber } from "rxjs";
+import { DataCollecter } from './data-collector';
 
 export class VisualizeSubscriber<T> extends Subscriber<T> {
-    public values: T[] = [];
-    public timeLookup: { [date: string]: T[] } = {}
-    public startTime = new Date();
+    public dataCollector: DataCollecter<T>;
 
     constructor() {
         super();
+        this.dataCollector = new DataCollecter();
     }
 
     public next(value: T): void {
-        this.values.push(value);
-        const timeDiff = new Date().getTime() - this.startTime.getTime();
-        if (this.timeLookup[timeDiff]) {
-            this.timeLookup[timeDiff] = [...this.timeLookup[timeDiff], value];
-        }
-        else {
-            this.timeLookup[timeDiff] = [value];
-        }
-
-        console.log(JSON.parse(JSON.stringify(this.values)));
-        console.log(JSON.parse(JSON.stringify(this.timeLookup)));
+        this.dataCollector.ingest(value);
         this._next(value);
     }
 }

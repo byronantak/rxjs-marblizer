@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { combineLatest, from, Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { DataCollecter } from './utilities/data-collector';
 import { VisualizeManySubscriber } from './utilities/visualize-many-subscriber';
+import { visualizeOperator } from './utilities/visualize-operator';
 import { VisualizeSubscriber } from './utilities/visualize-subscriber';
 
 @Component({
@@ -18,6 +21,9 @@ export class AppComponent {
   public readonly visualizer3: VisualizeManySubscriber<any>;
   public readonly visualizer4: VisualizeManySubscriber<any>;
 
+  public readonly beforeFilterDataCollector = new DataCollecter<number>();
+  public readonly afterFilterDataCollector = new DataCollecter<number>();
+
   constructor() {
     this.visualizer = new VisualizeSubscriber();
     this.visualizer2 = new VisualizeSubscriber();
@@ -31,5 +37,7 @@ export class AppComponent {
     combineLatest([this.obs, this.obs2]).subscribe(this.visualizer3);
 
     combineLatest([this.obs, this.obs2, this.obs]).subscribe(this.visualizer4);
+
+    this.obs.pipe(visualizeOperator(this.beforeFilterDataCollector), filter(x => x % 2 === 0), visualizeOperator(this.afterFilterDataCollector)).subscribe();
   }
 }
