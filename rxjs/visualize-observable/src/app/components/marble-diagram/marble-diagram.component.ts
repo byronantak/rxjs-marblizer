@@ -23,6 +23,9 @@ export class MarbleDiagramComponent {
     });
   };
 
+  @Input()
+  public isComplete = false;
+
   public timeDiffs: number[] = [];
   public values: any[] = [];
   public colours: string[] = []

@@ -4,27 +4,35 @@ HELLo
     {{ visualizer.dataCollector.timeLookup | json }}
 </pre>
 
-<app-marble-diagram [visualizer]="visualizer.dataCollector.timeLookup"></app-marble-diagram>
+<app-marble-diagram [visualizer]="visualizer.dataCollector.timeLookup"
+    [isComplete]="visualizer.dataCollector.isComplete">
+</app-marble-diagram>
 
 <br>
 
-<app-marble-diagram [visualizer]="visualizer2.dataCollector.timeLookup"></app-marble-diagram>
+<app-marble-diagram [visualizer]="visualizer2.dataCollector.timeLookup"
+    [isComplete]="visualizer2.dataCollector.isComplete">
+</app-marble-diagram>
 
 
 <br>
 
-<app-marble-diagram [visualizer]="visualizer3.dataCollector.timeLookup"></app-marble-diagram>
+<app-marble-diagram [visualizer]="visualizer3.dataCollector.timeLookup"
+    [isComplete]="visualizer3.dataCollector.isComplete"></app-marble-diagram>
 
 <br>
 
-<app-marble-diagram [visualizer]="visualizer4.dataCollector.timeLookup"></app-marble-diagram>
+<app-marble-diagram [visualizer]="visualizer4.dataCollector.timeLookup"
+    [isComplete]="visualizer4.dataCollector.isComplete"></app-marble-diagram>
 
 <br>
 BEFORE FILTER
 
-<app-marble-diagram [visualizer]="beforeFilterDataCollector.timeLookup"></app-marble-diagram>
+<app-marble-diagram [visualizer]="beforeFilterDataCollector.timeLookup"
+    [isComplete]="beforeFilterDataCollector.isComplete"></app-marble-diagram>
 
 <br>
 After FILTER
 
-<app-marble-diagram [visualizer]="afterFilterDataCollector.timeLookup"></app-marble-diagram>
+<app-marble-diagram [visualizer]="afterFilterDataCollector.timeLookup"
+    [isComplete]="afterFilterDataCollector.isComplete"></app-marble-diagram>

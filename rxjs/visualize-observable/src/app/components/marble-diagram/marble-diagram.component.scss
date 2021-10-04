@@ -12,4 +12,8 @@
         display: flex;
         align-self: center;
     }
+
+    &.complete:after {
+        content: 'COMPLETE'
+    }
 }
