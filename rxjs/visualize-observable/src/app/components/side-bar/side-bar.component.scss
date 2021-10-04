@@ -1,0 +1,22 @@
+nav {
+    display: inline-block;
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+        justify-content: space-evenly;
+    }
+
+    ul {
+        list-style: none;
+        height: 100%;
+        width: 250px;
+        // position: fixed;
+        overflow-x: hidden;
+        left: 0;
+        top: 0;
+        background-color: lightblue;
+    }
+}
+

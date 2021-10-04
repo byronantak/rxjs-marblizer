@@ -1,0 +1,10 @@
+<div style="display: flex; height: 100%;">
+    <nav style="display: flex; flex-direction: column;">
+        <ul class="menu">
+            <li *ngFor="let route of routes">
+                <a [routerLink]="route.path">{{ route.path }}</a>
+            </li>
+        </ul>
+    </nav>
+    <ng-content></ng-content>
+</div>

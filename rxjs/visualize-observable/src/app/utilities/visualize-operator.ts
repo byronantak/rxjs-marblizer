@@ -15,6 +15,8 @@ export function visualizeOperator<T>(dataCollector: DataIngester<T>): MonoTypeOp
             new OperatorSubscriber<T>(subscriber, (value: T) => {
                 dataCollector.ingest(value);
                 subscriber.next(value);
+            }, () => {
+                dataCollector.complete();
             })
         );
     });

@@ -4,6 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MarbleDiagramComponent } from './components/marble-diagram/marble-diagram.component';
 import { MarbleComponent } from './components/marble/marble.component';
+import { FromDemoComponent } from './pages/from-demo/from-demo.component';
+import { OfDemoComponent } from './pages/of-demo/of-demo.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 
 @NgModule({
@@ -11,6 +14,9 @@ import { MarbleComponent } from './components/marble/marble.component';
     AppComponent,
     MarbleDiagramComponent,
     MarbleComponent,
+    OfDemoComponent,
+    FromDemoComponent,
+    SideBarComponent,
   ],
   imports: [
     BrowserModule,
